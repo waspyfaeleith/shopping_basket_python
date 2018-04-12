@@ -15,6 +15,13 @@ class TestBasket(unittest.TestCase):
         self.basket.add(self.beans)
         self.assertEqual(1, self.basket.number_of_items())
 
+    def test_can_remove_item_from_basket(self):
+        self.basket.add(self.beans)
+        self.basket.add(self.milk)
+        self.basket.remove(self.beans)
+        self.assertEqual(1, self.basket.number_of_items())
+
+
     def test_can_get_total_cost_of_items_in_basket(self):
         self.basket.add(self.beans)
         self.basket.add(self.milk)
