@@ -18,3 +18,10 @@ class Discount(object):
         for item in self.bogof_items:
             total_bogof_discount += self.bogof_for_item(basket, item)
         return total_bogof_discount
+
+    def extra_10_per_cent(self, basket):
+        basket_total = basket.get_total()
+        basket_total -= self.bogof_discount(basket)
+        if (basket_total > 20.00):
+            basket_total *= 0.9
+        return basket_total

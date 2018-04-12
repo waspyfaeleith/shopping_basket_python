@@ -53,6 +53,14 @@ class TestItem(unittest.TestCase):
         bogof_discount = self.discount.bogof_discount(self.basket)
         self.assertEqual(0.95, bogof_discount)
 
+    def test_10_percent_discount_on_total_over_20_pounds(self):
+        dvd = Item("DVD",20.00)
+        self.basket.add(self.beans)
+        self.basket.add(self.beans)
+        self.basket.add(dvd)
+        basket_total = self.discount.extra_10_per_cent(self.basket)
+        self.assertEqual(18.36, basket_total)
+
 
 if __name__ == '__main__':
     unittest.main()
