@@ -11,6 +11,9 @@ class Basket(object):
     def remove(self, item):
         self.items.remove(item)
 
+    def empty(self):
+        self.items = []
+
     def get_total(self):
         total = 0
         for item in self.items:
