@@ -25,3 +25,9 @@ class Discount(object):
         if (basket_total > 20.00):
             basket_total *= 0.9
         return basket_total
+
+    def extra_2_percent_for_loyal_cust(self, basket, customer):
+        basket_total = self.extra_10_per_cent(basket)
+        if (customer.has_loyalty_card):
+            basket_total *= 0.98
+        return basket_total

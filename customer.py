@@ -8,6 +8,10 @@ class Customer(object):
         return self._name
 
     @property
+    def name(self):
+        return self._name
+
+    @property
     def has_loyalty_card(self):
             return self._has_loyalty_card
 

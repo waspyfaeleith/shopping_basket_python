@@ -1,5 +1,6 @@
 import unittest
 from customer import Customer
+from basket import Basket
 
 class TestCustomer(unittest.TestCase):
     def setUp(self):

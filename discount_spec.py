@@ -2,6 +2,7 @@ import unittest
 from item import Item
 from basket import Basket
 from discount import Discount
+from customer import Customer
 
 class TestItem(unittest.TestCase):
     def setUp(self):
@@ -61,6 +62,20 @@ class TestItem(unittest.TestCase):
         basket_total = self.discount.extra_10_per_cent(self.basket)
         self.assertEqual(18.36, basket_total)
 
+    def test_extra_2_per_cent_discount__cust_has_loyalty_card(self):
+        customer = Customer("Jack")
+        customer.has_loyalty_card = True
+        dvd = Item("DVD",20.00)
+        self.basket.add(dvd)
+        basket_total = self.discount.extra_2_percent_for_loyal_cust(self.basket, customer)
+        self.assertEqual(19.60, basket_total)
+
+    def test_extra_2_per_cent_discount__cust_does_not_have_loyalty_card(self):
+        customer = Customer("Jack")
+        dvd = Item("DVD",20.00)
+        self.basket.add(dvd)
+        basket_total = self.discount.extra_2_percent_for_loyal_cust(self.basket, customer)
+        self.assertEqual(20.00, basket_total)
 
 if __name__ == '__main__':
     unittest.main()
